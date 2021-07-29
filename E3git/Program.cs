@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E3git.Entities;
+using E3git.Entities.Enums;
+using System;
 
 namespace E3git
 {
@@ -6,7 +8,20 @@ namespace E3git
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Order order = new Order
+            {
+                Id = 1800,
+                Moment = DateTime.Now,
+                Status = OrderStatus.PendingPayment
+            };
+            Console.WriteLine(order);
+
+            string txt = OrderStatus.PendingPayment.ToString();
+
+            OrderStatus os = Enum.Parse<OrderStatus>("Delivered");
+
+            Console.WriteLine(os);
+            Console.WriteLine(txt);
         }
     }
 }
